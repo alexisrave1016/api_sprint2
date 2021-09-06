@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './containers/App'
+import AppRouter from './routers/AppRouter.js';
+import './style/main.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './style/card.css'
+
 
 
 
 ReactDOM.render(
-    <App />,
+    <AppRouter />,
     document.getElementById('root')
 );
 

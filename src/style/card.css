@@ -1,0 +1,30 @@
+#content_div_one_photo {
+    height: 16rem;
+    width: 11rem;
+    border-radius: 10px;
+    border: 5px solid black;
+  }
+  
+  #padre {
+    position: relative;    /* para poder posicionar el texto de forma absoluta */
+    display: inline-block; /* para que solo ocupe el ancho de la imagen */
+  }
+  
+  .card-title {
+    position: absolute;    /* posición absolute con respecto al padre */
+    bottom: 0;             /* posicionada en la esquina inferior derecha */
+    right: 1rem;
+    color: yellow;
+    top: 20px;
+    left: 5px;
+    width: 60px;
+    height: 30px;
+    border: 2px white solid;
+    border-radius: 25px;
+  }
+
+ #estrella{
+   width: 20px;
+   height: 20px;
+  
+ }
