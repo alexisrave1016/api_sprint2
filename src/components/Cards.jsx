@@ -16,7 +16,7 @@ export default class Cards extends Component {
             <div>
             <div id="padre">
             <img src={portada} id="content_div_one_photo" class="img-fluid card-img text-center "/>
-            <div class="card-title"><img id="estrella" src="https://assets.stickpng.com/thumbs/580b585b2edbce24c47b2913.png" />{calificaciion}</div>
+            <div className="card-title"><img id="estrella" src="https://assets.stickpng.com/thumbs/580b585b2edbce24c47b2913.png" />{calificaciion}</div>
             </div>
             </div>
         )
