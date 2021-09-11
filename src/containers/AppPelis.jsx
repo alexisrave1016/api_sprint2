@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import Buscador from '../components/Buscador'
 import Cards from '../components/Cards'
+import Cookies from 'universal-cookie/es6'
+
 import Carrucel from '../components/Carrucel'
 const url ="https://api-alexisrave-anime.herokuapp.com/animes"
+
+const cookies = new Cookies()
 
 export default class AppPelis extends Component {
     constructor(){
@@ -18,8 +22,16 @@ export default class AppPelis extends Component {
         const data = await res.json()
         this.setState({peli:data})
         console.log(data)
+
+        if(!cookies.get('username')){
+           
+            alert("debes inicair sesion")
+            window.location.href="./";
+            
+        }
        
     }
+
    
    
     render() {
