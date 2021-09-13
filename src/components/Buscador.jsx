@@ -1,29 +1,44 @@
 import React, { Component } from 'react'
 import Cookies from 'universal-cookie/es6'
-//  AppPelis from '../containers/AppPelis'
-const cookies = new Cookies();
-export default class Buscador extends Component {
-  
 
-    
-        cerrarSesion=()=>{
-        cookies.remove('id', {path:"/"});
-        cookies.remove('apellido_paterno', {path:"/"});
-        cookies.remove('apellido_materno', {path:"/"});
-        cookies.remove('nombre', {path:"/"});
-        cookies.remove('username', {path:"/"});
-        window.location.href='./';
+const cookies = new Cookies()
+
+function Buscador({busqueda, animes, modAnimes}) {    
+
+       const CerrarSesion = async ()=>{
+        cookies.remove('id',  {path: "/"})
+        cookies.remove('username',  {path: "/"})
+        cookies.remove('nombre',  {path: "/"})
+        cookies.remove('apellido_paterno',  {path: "/"})
+        cookies.remove('apellido_materno',  {path: "/"})
+        window.location.href = "./";
     }
-   
 
-        render() {
+    const handleSubmit = async (e) =>{
+      e.preventDefault()
+    }
+
+    const handleChange = (e) =>{
+       busqueda(e.target.value);
+        filtrar(e.target.value)
+       // console.log("busqueda: "+ animes);
+    }
+
+    const filtrar = (terminoBusqueda)=>{
+        let resultadoBusqueda = animes.filter(elem=>{
+            if(elem.titulo.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){
+                return elem
+            }
+        })
+        modAnimes(resultadoBusqueda)
+      }
      
+
         return (
-            
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light  navbar-expand-sm bg-black">
                     <div className="container-fluid">
-                        <p className="navbar-brand" href="#"><img src="https://res.cloudinary.com/dd01p9lb9/image/upload/v1630871290/api_sprint2/logo_vlh6uj.png" width="65px" /></p>
+                        <p className="navbar-brand" href="#"><img src="https://res.cloudinary.com/dd01p9lb9/image/upload/v1630871290/api_sprint2/logo_vlh6uj.png" width="65px" alt="no disponible"/></p>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -43,8 +58,8 @@ export default class Buscador extends Component {
 
                                   
                             </ul>
-                                <form className="d-flex">
-                                    <input className="form-control " width="300px" type="search" placeholder="Search" aria-label="Search" />
+                                <form onSubmit={handleSubmit} className="d-flex">
+                                    <input className="form-control " width="300px" type="search" placeholder="Search" aria-label="Search" onChange={handleChange}/>
                                     <button className="btn btn-outline-success bg-warning" type="submit"><i class="fas fa-search" ></i></button>
                                 </form>
                                 <div className="nav-item dropdown">
@@ -52,16 +67,15 @@ export default class Buscador extends Component {
                                     <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="#scrollspyHeading3">configuracion</a></li>
                                     <li><hr className="dropdown-divider"/></li>
-                                    <li><button className="dropdown-item" onClick={()=>this.cerrarSesion()}>Cerrar Sesion</button></li>
+                                    <li><button className="dropdown-item" onClick={()=>CerrarSesion()}>Cerrar Sesion</button></li>
                                     </ul>
                                 </div>
                         </div>
                     </div>
                </nav>
-               {/* <li>
-                <a>{duracion}</a>
-             </li>   */}
             </div>
         )
-    }
+    
 }
+
+export default Buscador;

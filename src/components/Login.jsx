@@ -3,7 +3,11 @@ import axios from "axios";
 import md5 from "md5";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie/es6";
+import Swal from "sweetalert2";
+// import Swal from 'sweetalert2'
 
+
+const swal = require('sweetalert2')
 const URL = "https://api-alexisrave-anime.herokuapp.com/usuario";
 
 const cookies = new Cookies();
@@ -59,6 +63,16 @@ export default class login extends Component {
           cookies.set("nombre", respuesta.nombre, { path: "/" });
           cookies.set("username", respuesta.username, { path: "/" });
           alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido_paterno}`);
+          (()=>{swal.fire({
+            title: `${respuesta.nombre}`,
+            text: `${respuesta.apellido_paterno}`,
+            icon: 'success',
+            button: 'Aceptar',
+            
+          
+          })})()
+          
+          
           window.location.href = "./portada";
         } else {
           alert("El usuario o la contraseña no son correctos");
@@ -70,6 +84,7 @@ export default class login extends Component {
   };
 
   componentDidMount(){
+  
     if(cookies.get('username')){
       alert("ya estas logiado")
       window.location.href="./portada"
@@ -115,6 +130,7 @@ export default class login extends Component {
             type="submit"
             className="btn btn-primary btn-block"
             onClick={() => this.iniciarSesion()}
+            
           >
             Entrar
           </button>
