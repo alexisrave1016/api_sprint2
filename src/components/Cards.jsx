@@ -1,10 +1,13 @@
 import React from 'react'
-import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
+
 
 export default function Cards(props) {
     const {
+        id,
         portada,
         calificaciion,
+        
         // titulo,
         // lanzamiento,
         // duracion,
@@ -17,12 +20,14 @@ export default function Cards(props) {
     // })
         
     return (
-        <div className="modal-dialog modal-dialog-scrollable">
-            <div id="padre" type="button" onClick>
-            <img src={portada} id="content_div_one_photo" className="img-fluid card-img text-center " alt="no disponible"/>
+        <Link to={`./detalle/${id}`}>
+        <div className="modal-dialog modal-dialog-scrollable ">
+            <div id="padre">
+            <img src={portada} id="content_div_one_photo" className="img-fluid card-img text-center border border-white" alt="no disponible"/>
             <div className="card-title"><i class="fas fa-star"></i>{calificaciion}</div>
             </div>
         </div>
+        </Link>
 
 
     )

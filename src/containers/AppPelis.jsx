@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie/es6'
 
 
 import Carrucel from '../components/Carrucel'
-import ModalApp from '../components/ModalApp'
+import ModalApp from '../components/Detalles'
 const url ="https://api-alexisrave-anime.herokuapp.com/animes"
 
 const cookies = new Cookies()
@@ -49,10 +49,11 @@ function AppPelis(){
             <br />
         
         
-        <div className="container row row-cols-1 row-cols-md-5 g-4 py5 md-auto">
+        <div className="container row row-cols-2 row-cols-md-5 g-4 py5 md-auto ">
          {animes &&
         animes.map(elem=>(
              <Cards 
+
                     key={elem.titulo}
                     dato={elem} 
                     
@@ -60,7 +61,7 @@ function AppPelis(){
           ))}
           
           </div>
-<ModalApp />
+
           </Fragment>
       
 

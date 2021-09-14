@@ -32,6 +32,24 @@ function Buscador({busqueda, animes, modAnimes}) {
         })
         modAnimes(resultadoBusqueda)
       }
+
+      const clickSubmitTop= ()=>{
+          let resultadoBusqueda = animes.filter(elemt=>{
+              if(elemt.calificaciion > 7.5){
+                  return elemt
+              }
+          })
+          modAnimes(resultadoBusqueda)
+      }
+
+      const clickSubmitUp= ()=>{
+        let resultadoBusqueda = animes.filter(elemt=>{
+            if(elemt.calificaciion <= 7.5){
+                return elemt
+            }
+        })
+        modAnimes(resultadoBusqueda)
+    }
      
 
         return (
@@ -49,10 +67,10 @@ function Buscador({busqueda, animes, modAnimes}) {
                                     <p className="nav-link active text-white h5" aria-current="page" href="#">Todas</p>
                                     </li>
                                     <li className="nav-item">
-                                    <p className="nav-link text-white h5" href="#">Mas valoradas</p>
+                                    <div className="nav-link text-white h5 btn"  onClick={()=>clickSubmitTop()}>Mas valoradas</div>
                                     </li>
                                     <li className="nav-item">
-                                    <p className="nav-link disabled text-white h5" href="#" tabindex="-1" aria-disabled="true">Menos valoradas</p>
+                                    <div className="nav-link  text-white h5 btn"  onClick={()=>clickSubmitUp()}>Menos valoradas</div>
                                     </li>
                                    {/* <li>{primer_apellido}</li> */}
 

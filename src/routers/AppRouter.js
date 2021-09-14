@@ -5,6 +5,7 @@ import {
     Switch,
     Route,
     } from "react-router-dom"
+import Detalles from '../components/Detalles'
 import Registro from '../components/Registro'
 import AppPelis from '../containers/AppPelis'
 import PaginaPrincipal from '../containers/PaginaPrincipal'
@@ -20,6 +21,7 @@ export default class AppRouter extends Component {
                     <Route exact path="/registrar" component={Registro}/>
                     <Route exact path="/" component={PaginaPrincipal}/>
                     <Route exact path="/portada" component={AppPelis}/>
+                    <Route exact path="/detalle/:id" component={Detalles}/>
                 </Switch>
             </Router>
         )
