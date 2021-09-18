@@ -93,8 +93,8 @@ export default class login extends Component {
 
   render() {
     return (
-      <div className="text-center py-5">
-        <div className="fadeIn first ">
+      <div className="text-center py-5 vw-100">
+        <div className="fadeIn first">
           <img
             src="https://res.cloudinary.com/dd01p9lb9/image/upload/v1630871290/api_sprint2/logo_vlh6uj.png"
             id="icon"
@@ -114,6 +114,7 @@ export default class login extends Component {
             required=""
             name="username"
             onChange={this.handleChange}
+            
           />
 
           <input

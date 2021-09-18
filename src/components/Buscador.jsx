@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Cookies from 'universal-cookie/es6'
+import { Link } from 'react-router-dom'
 
 const cookies = new Cookies()
 
@@ -43,7 +44,7 @@ function Buscador({busqueda, animes, modAnimes}) {
       }
 
       const clickSubmitUp= ()=>{
-        let resultadoBusqueda = animes.filter(elemt=>{
+        let resultadoBusqueda = animes.filter(elemt =>{
             if(elemt.calificaciion <= 7.5){
                 return elemt
             }
@@ -72,9 +73,9 @@ function Buscador({busqueda, animes, modAnimes}) {
                                     <li className="nav-item">
                                     <div className="nav-link  text-white h5 btn"  onClick={()=>clickSubmitUp()}>Menos valoradas</div>
                                     </li>
-                                   {/* <li>{primer_apellido}</li> */}
+                        
 
-                                  
+                
                             </ul>
                                 <form onSubmit={handleSubmit} className="d-flex">
                                     <input className="form-control " width="300px" type="search" placeholder="Search" aria-label="Search" onChange={handleChange}/>
@@ -83,9 +84,9 @@ function Buscador({busqueda, animes, modAnimes}) {
                                 <div className="nav-item dropdown">
                                     <buttom className="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{cookies.get('nombre')}</buttom>
                                     <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#scrollspyHeading3">configuracion</a></li>
-                                    <li><hr className="dropdown-divider"/></li>
-                                    <li><button className="dropdown-item" onClick={()=>CerrarSesion()}>Cerrar Sesion</button></li>
+                                               <Link to='/editar'> <li><a className="dropdown-item" href="#scrollspyHeading3">configuracion</a></li> </Link>
+                                            <li><hr className="dropdown-divider"/></li>
+                                            <li><button className="dropdown-item" onClick={()=>CerrarSesion()}>Cerrar Sesion</button></li>
                                     </ul>
                                 </div>
                         </div>
